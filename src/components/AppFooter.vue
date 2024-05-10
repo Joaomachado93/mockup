@@ -37,28 +37,27 @@ export default {
   }
 };
 </script>
-
-<style scoped>
+<style lang="scss" scoped>
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #000000;
+  background-color: #000;
   color: white;
   margin-top: 30px;
-}
 
-footer ul {
-  list-style: none;
-  padding: 0; 
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-}
+  ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
 
-footer li {
-  margin-bottom: 10px; 
-  padding: 5px; 
-  border-radius: 5px;
-  color: #eee;
+    li {
+      margin-bottom: 10px;
+      padding: 5px;
+      border-radius: 5px;
+      color: #eee;
+    }
+  }
 }
 </style>

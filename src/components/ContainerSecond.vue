@@ -37,88 +37,73 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .content-container {
   display: flex;
-  flex-direction: row; 
-  align-items: stretch; 
+  flex-direction: row;
+  align-items: stretch;
   margin-top: 20px;
-}
 
-.text-section {
-  flex: 1; 
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  position: relative; 
-}
+  .image-section {
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
 
-.img {
-  width: 100%;
-}
+    .img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
 
-.heading, .text-content {
-  text-align: end;
-  margin: 0px 0px 16px 0px;
-}
+  .text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 
-.text-content {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-  margin-bottom: 66px; 
-}
+    .heading, .text-content {
+      text-align: end;
+      margin: 0 0 16px;
 
-.button-lorem {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-  display: inline-block;
-  margin-top: 12px;
-  background-color: lightgrey;
-  padding: 8px 47px;
-}
+      &:last-child {
+        margin-bottom: 66px;
+      }
+    }
 
-.image-section {
-  flex: 1;
-  text-align: center;
-  overflow: hidden; 
-}
-
-.slider-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover; 
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #fff;
-  padding: 10px 20px;
-  cursor: pointer;
+    .button-lorem {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      display: inline-block;
+      margin-top: 12px;
+      background-color: lightgrey;
+      padding: 8px 47px;
+    }
+  }
 }
 
 @media (max-width: 768px) {
   .content-container {
     flex-direction: column;
-  }
 
-  .text-section, .image-section {
-    flex: 1; 
-    padding: 0 15px; 
-    text-align: center; 
-  }
+    .text-section, .image-section {
+      flex: 1;
+      padding: 0 15px;
+      text-align: center;
+      
+      .heading, .text-content {
+        text-align: center;
+      }
 
-  .heading, .text-content {
-    text-align: center; 
-  }
-
-  .button-lorem {
-    right: 15px; 
+      .button-lorem {
+        position: static;  
+        width: auto;  
+        margin: 10px auto 0; 
+        padding: 8px 20px;
+      }
+    }
   }
 }
 </style>

@@ -99,65 +99,69 @@ export default {
 };
 
 </script>
-
-<style scoped>
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-.img-ord{
-  width: 14px;
-  margin-right: 12px;
-  cursor: pointer;
-}
-select {
-  height: 33px;
-  background-color: lightgrey;
-}
-
-.accordion {
-  cursor: pointer;
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-}
-.contain-accordion{
-  display: flex;
-  display: flex;
-  justify-content: space-between;
-}
-.accordion-text{
-  font-weight: bold;
-}
-.accordion h3 {
-  margin: 0;
-}
+<style lang="scss" scoped>
 .parent-container {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .parent-child {
+    width: 86%; 
+    place-self: flex-end; 
+    display: flow;
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      .img-ord {
+        width: 14px;
+        margin-right: 12px;
+        cursor: pointer;
+      }
+
+      select {
+        height: 33px;
+        background-color: lightgrey;
+      }
+    }
+
+    .accordion {
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+
+      h3 {
+        margin: 0;
+      }
+
+      .contain-accordion {
+        display: flex;
+        justify-content: space-between;
+
+        .accordion-text {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .show {
+      width: 25%;
+      text-align: center;
+      height: 36px;
+      background-color: lightgrey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
 }
-.parent-child{
-  width: 86%; 
-  place-self: flex-end; 
-  display: flow;
-}
-.accordion p {
-  margin: 10px 0 0;
-}
-.show{
-  width: 25%;
-  text-align: center;
-  height: 36px;
-  background-color: lightgrey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-  cursor: pointer;
-}
+
 @media (max-width: 768px) {
   .controls, .accordion {
     flex-direction: column;
@@ -173,19 +177,19 @@ select {
   }
 
   .accordion {
-    padding: 5px; 
-  }
+    padding: 5px;
 
-  .accordion h3 {
-    font-size: 16px; 
-  }
+    h3 {
+      font-size: 16px;
+    }
 
-  div[style*="width: 86%"] {
-    width: 100%; 
-  }
+    div[style*="width: 86%"] {
+      width: 100%;
+    }
 
-  .accordion div[style*="display: flex;"] {
-    flex-direction: column;
+    div[style*="display: flex;"] {
+      flex-direction: column;
+    }
   }
 }
 </style>

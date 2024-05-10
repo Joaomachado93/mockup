@@ -2,7 +2,7 @@
   <div>
     <AppNavbar />
     <AppSlider />
-    <PopulationData />  <!-- Certifique-se de que o nome do componente aqui corresponda ao registrado no script -->
+    <PopulationData />
     <AppFooter />
   </div>
 </template>

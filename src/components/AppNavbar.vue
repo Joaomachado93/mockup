@@ -66,7 +66,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style lang="scss" scoped>
 nav {
   display: flex;
   align-items: center;
@@ -85,24 +85,46 @@ nav {
     border: none;
     color: white;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: block;
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+    }
   }
 
   ul {
     list-style: none;
     flex-direction: row;
-    display: flex; 
+    display: flex;
     color: white;
     margin: 0;
     padding: 0;
     width: 100%;
     justify-content: center;
-  }
 
-  li {
-    padding: 10px 15px;
-    &:hover {
-      background-color: #f0f0f0;
-      color: black;
+    li {
+      padding: 10px 15px;
+      &:hover {
+        background-color: #f0f0f0;
+        color: black;
+      }
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: black;
+      z-index: 1000;
+
+      &.open {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 
@@ -112,30 +134,5 @@ nav {
     align-items: center;
     position: relative;
   }
-
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-    }
-  
-    ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: black;
-      z-index: 1000;
-    }
-  
-    ul.open {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-  
 }
 </style>

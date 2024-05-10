@@ -29,7 +29,12 @@
   </script>
   <style>
   .container{
-    margin: 0 60px;
+    margin: 0 100px;
+  }
+  @media (max-width: 768px) {
+    .container{
+      margin: 0 0px;
+    }
   }
 </style>
   

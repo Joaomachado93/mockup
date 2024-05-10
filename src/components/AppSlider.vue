@@ -30,72 +30,66 @@
     }
   };
   </script>
- <style scoped>
+ <style lang="scss" scoped>
  .slider {
    display: flex;
    align-items: center;
    justify-content: center;
    position: relative;
    overflow: hidden;
- }
  
- .main-image {
-   width: 92%;
-   height: auto;
-   object-fit: contain;
- }
+   .main-image {
+     width: 92%;
+     height: auto;
+     object-fit: contain;
+   }
  
- .arrow-icon {
-   width: 50px;
-   height: auto;
- }
- 
- .nav-button {
-   background: rgba(0, 0, 0, 0.5);
-   border: none;
-   cursor: pointer;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   width: 60px;
-   height: 60px;
-   position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   z-index: 10;
-   transition: background-color 0.3s ease;
- }
- 
- .nav-button:hover {
-   background-color: rgba(0, 0, 0, 0.7);
- }
- 
- .nav-button:first-child {
-   left: 0px;
- }
- 
- .nav-button:last-child {
-   right: 0px;
- }
- 
- @media (max-width: 768px) {
    .arrow-icon {
-     width: 30px;
+     width: 50px;
+     height: auto;
    }
  
    .nav-button {
-     width: 40px;
-     height: 40px; 
+     background: rgba(0, 0, 0, 0.5);
+     border: none;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 60px;
+     height: 60px;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     z-index: 10;
+     transition: background-color 0.3s ease;
+ 
+     &:hover {
+       background-color: rgba(0, 0, 0, 0.7);
+     }
+ 
+     &:first-child {
+       left: 0px;
+     }
+ 
+     &:last-child {
+       right: 0px;
+     }
    }
-   .main-image {
-    width: 100%; 
-  }
-  .nav-button:last-child {
-    right: 0px;
-  }
-  .nav-button:first-child {
-    left: 0x;
-  }
+ 
+   @media (max-width: 768px) {
+     .arrow-icon {
+       width: 30px;
+     }
+ 
+     .nav-button {
+       width: 40px;
+       height: 40px;
+     }
+     .main-image {
+       width: 100%; 
+     }
+   }
  }
  </style>
  

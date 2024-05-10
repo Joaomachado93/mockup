@@ -37,68 +37,55 @@ export default {
   }
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .content-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   margin-top: 20px;
-}
 
-.text-section {
-  flex: 1 1 300px;
-  padding: 0 39px 0 0;
-}
+  .text-section {
+    flex: 1 1 300px;
+    padding: 0 39px 0 0;
 
-.button-lorem {
-  display: inline-block;
-  margin-top: 12px;
-  background-color: lightgrey;
-  padding: 8px 47px;
-}
+    .heading { margin-bottom: 20px; }
 
-.text-content {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #333;
-}
+    .text-content {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
 
-.image-section {
-  flex: 1 1 300px;
-  text-align: center;
-  position: relative;
-}
-
-.slider-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-  .content-container {
-    flex-direction: column;
+    .button-lorem {
+      display: inline-block;
+      margin-top: 12px;
+      background-color: lightgrey;
+      padding: 8px 47px;
+    }
   }
 
-  .text-section, .image-section {
-    padding: 0 15px;
-    flex-basis: auto;
+  .image-section {
+    flex: 1 1 300px;
     text-align: center;
+    img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
   }
 
-  .nav-button {
-    left: 10%;
-    right: 10%;
-  }
+  @media (max-width: 768px) {
+    flex-direction: column;
 
-  .nav-button:first-child, .nav-button:last-child {
-    left: 10px;
-    right: auto;
-  }
-  .button-lorem{
-    margin-bottom: 20px;
+    .text-section, .image-section {
+      padding: 0 15px;
+      flex-basis: auto;
+      text-align: center;
+    }
+    .button-lorem {
+      margin-bottom: 18px;
+    }
   }
 }
 </style>
