@@ -45,7 +45,7 @@ export default {
     return {
       populationData: [],
       selectedYear: '',
-      searchText: '', // Inicializando a variável de texto de pesquisa
+      searchText: '',
       visibleCount: 4,
       sourceName: '',
     };
@@ -55,12 +55,10 @@ export default {
       return [...new Set(this.populationData.map(data => data.Year))];
     },
     filteredData() {
-      // Filtro por ano
       let data = this.populationData;
       if (this.selectedYear) {
         data = data.filter(item => item.Year === this.selectedYear);
       }
-      // Filtro por texto de pesquisa
       if (this.searchText) {
         data = data.filter(item => item.Nation.toLowerCase().includes(this.searchText.toLowerCase()));
       }
