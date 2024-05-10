@@ -14,19 +14,22 @@
         </div>
       </div>
       <div class="accordion" v-for="item in paginatedData" :key="item.ID" @click="toggle(item)">
-        <h3>{{ item.Year }}</h3>
-        <div class="contain-accordion">
+        <div class="accordion-header">
+          <h3>{{ item.Year }}</h3>
+          <span class="toggle-icon">{{ item.isOpen ? '-' : '+' }}</span>
+        </div>
+        <div class="contain-accordion" v-show="item.isOpen">
           <div>
-            <div class="accordion-text" v-show="item.isOpen">Country</div>
-            <div v-show="item.isOpen">{{ item.Nation }}</div>
+            <div class="accordion-text">Country</div>
+            <div>{{ item.Nation }}</div>
           </div>
           <div>
-            <div class="accordion-text" v-show="item.isOpen">Population</div>
-            <div v-show="item.isOpen">{{ item.Population }}</div>
+            <div class="accordion-text">Population</div>
+            <div>{{ item.Population }}</div>
           </div>
           <div>
-            <div class="accordion-text" v-show="item.isOpen">Source</div>
-            <div v-show="item.isOpen">{{ sourceName }}</div>
+            <div class="accordion-text">Source</div>
+            <div>{{ sourceName }}</div>
           </div>
         </div>
       </div>
@@ -34,7 +37,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 import axios from 'axios';
@@ -134,8 +136,21 @@ export default {
       border: 1px solid #ccc;
       margin-top: 5px;
 
-      h3 {
-        margin: 0;
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+          margin: 0;
+          flex-grow: 1;
+        }
+      }
+
+      .toggle-icon {
+        cursor: pointer;
+        font-weight: bold;
+        margin-right: 5px; // Added some margin for better spacing
       }
 
       .contain-accordion {
