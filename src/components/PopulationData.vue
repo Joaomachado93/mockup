@@ -78,7 +78,7 @@ export default {
         .catch(error => console.error('Error fetching population data:', error));
     },
     sort(order) {
-      let sortedData = [...this.filteredData]; // Ajustar para filtrar apenas dados já filtrados
+      let sortedData = [...this.filteredData];
       sortedData.sort((a, b) => order === 'asc' ? a.Year - b.Year : b.Year - a.Year);
       this.populationData = sortedData;
     },
