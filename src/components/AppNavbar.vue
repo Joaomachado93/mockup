@@ -122,7 +122,7 @@ nav {
     }
   
     ul {
-      display: none;  /* Oculto por padrão */
+      display: none;
       position: absolute;
       top: 100%;
       left: 0;
@@ -132,7 +132,7 @@ nav {
     }
   
     ul.open {
-      display: flex; /* Deve mostrar quando open é verdadeiro */
+      display: flex;
       flex-direction: column;
     }
   }
