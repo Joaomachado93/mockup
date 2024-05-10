@@ -13,7 +13,7 @@
           </select>
         </div>
       </div>
-      <div class="accordion" v-for="item in filteredData" :key="item.ID" @click="toggle(item)">
+      <div class="accordion" v-for="item in paginatedData" :key="item.ID" @click="toggle(item)">
         <h3>{{ item.Year }}</h3>
         <div class="contain-accordion">
           <div>
@@ -45,6 +45,7 @@ export default {
     return {
       populationData: [],
       selectedYear: '',
+      searchText: '', // Inicializando a variável de texto de pesquisa
       visibleCount: 4,
       sourceName: '',
     };
@@ -54,11 +55,20 @@ export default {
       return [...new Set(this.populationData.map(data => data.Year))];
     },
     filteredData() {
-      return this.selectedYear ? this.populationData.filter(data => data.Year === this.selectedYear) : this.populationData;
+      // Filtro por ano
+      let data = this.populationData;
+      if (this.selectedYear) {
+        data = data.filter(item => item.Year === this.selectedYear);
+      }
+      // Filtro por texto de pesquisa
+      if (this.searchText) {
+        data = data.filter(item => item.Nation.toLowerCase().includes(this.searchText.toLowerCase()));
+      }
+      return data;
     },
     paginatedData() {
-      return this.filteredData.slice(0, this.visibleCount);
-    },
+    return this.filteredData.slice(0, this.visibleCount);
+  },
   },
   methods: {
     fetchData() {
@@ -70,14 +80,17 @@ export default {
         .catch(error => console.error('Error fetching population data:', error));
     },
     sort(order) {
-      let sortedData = [...this.populationData];
+      let sortedData = [...this.filteredData]; // Ajustar para filtrar apenas dados já filtrados
       sortedData.sort((a, b) => order === 'asc' ? a.Year - b.Year : b.Year - a.Year);
       this.populationData = sortedData;
     },
-
     loadMore() {
-      this.visibleCount += 4;
+      if (this.visibleCount < this.filteredData.length) {
+        this.visibleCount += 4;
+      }
     },
+
+
     toggle(item) {
       item.isOpen = !item.isOpen;
     }
@@ -86,6 +99,7 @@ export default {
     this.fetchData();
   }
 };
+
 </script>
 
 <style scoped>
